@@ -21,7 +21,18 @@
       padding: 10px 20px;
     }
 
-    .logo {
+    .logo-container {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo-container img {
+      width: 30px;
+      height: 30px;
+      margin-right: 10px;
+    }
+
+    .logo-text {
       font-size: 1.5em;
       font-weight: bold;
     }
@@ -110,7 +121,10 @@
 </head>
 <body>
   <header class="navbar">
-    <div class="logo">SEVENTEEN</div>
+    <div class="logo-container">
+      <img src="logo.png" alt="Logo" />
+      <div class="logo-text">SEVENTEEN</div>
+    </div>
     <nav class="nav-links">
       <a href="#" class="active">Fan</a>
       <a href="#">Artist</a>
@@ -167,10 +181,9 @@
     </section>
 
     <section class="group-card">
-      <img src="Artist.png" alt="SEVENTEEN group" />
+      <img src="ARTIST.jpg" alt="SEVENTEEN group" />
       <div class="members">9.1M members</div>
     </section>
   </main>
 </body>
 </html>
-
