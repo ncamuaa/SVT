@@ -34,19 +34,20 @@
       display: flex;
       justify-content: center;
       background-color: #d2f0ff;
-      padding: 10px;
-      gap: 30px; /* spacing between nav links */
+      padding: 10px 0;
+      gap: 40px; /* spacing between links */
     }
 
     nav a {
       text-decoration: none;
       color: black;
       font-weight: bold;
+      font-size: 18px;
       padding-bottom: 5px;
     }
 
     nav a.active {
-      border-bottom: 2px solid black;
+      border-bottom: 3px solid black;
     }
 
     .slideshow {
@@ -92,10 +93,10 @@
     .interaction-section {
       display: flex;
       justify-content: center;
-      gap: 20px;
+      gap: 30px;
       margin: 20px auto;
-      flex-wrap: wrap;
       max-width: 1100px;
+      flex-wrap: wrap;
     }
 
     .post-column {
@@ -116,11 +117,20 @@
       align-items: center;
     }
 
-    .post-box input[type="text"] {
+    .post-box input[type="text"]#nameInput {
       padding: 10px;
       border: none;
       border-radius: 10px;
-      font-size: 14px; /* smaller font for fit */
+      font-size: 16px;
+      width: 100px;
+      flex-shrink: 0;
+    }
+
+    .post-box input[type="text"]#postInput {
+      padding: 10px;
+      border: none;
+      border-radius: 10px;
+      font-size: 14px;
       flex: 1;
     }
 
@@ -140,30 +150,31 @@
       padding: 15px;
       max-height: 150px;
       overflow-y: auto;
-      font-size: 18px; /* bigger post text */
+      font-size: 18px;
     }
 
     .post strong {
-      font-size: 14px; /* smaller name */
+      font-size: 16px;
     }
 
-    .post span {
-      font-size: 20px; /* bigger post text */
+    .post {
+      margin-bottom: 10px;
     }
 
     .player {
-      width: 250px;
+      width: 320px;
       background-color: #fff1f1;
       padding: 20px;
       border-radius: 25px;
       border: 2px solid black;
       text-align: center;
       height: fit-content;
+      font-size: 16px;
     }
 
     .controls button {
       margin: 5px;
-      font-size: 18px;
+      font-size: 22px;
       cursor: pointer;
     }
 
@@ -178,6 +189,7 @@
       margin: 5px;
       border-radius: 5px;
       cursor: pointer;
+      font-size: 14px;
     }
 
     .pink {
@@ -187,6 +199,7 @@
       margin: 5px;
       border-radius: 5px;
       cursor: pointer;
+      font-size: 14px;
     }
 
     footer {
@@ -218,20 +231,36 @@
       color: #eee;
       text-decoration: none;
       font-weight: bold;
+      font-size: 18px;
     }
 
     footer .social-links a:hover {
       text-decoration: underline;
     }
 
-    .youtube-video {
-      display: block;
-      margin: 20px auto;
+    .video-container {
       width: 851px;
+      margin: 20px auto;
+    }
+
+    .video-container iframe {
+      width: 100%;
       height: 480px;
-      border-radius: 20px;
+      border-radius: 15px;
       border: none;
     }
+
+    /* Write a post and player side by side */
+    .interaction-section {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin: 20px auto;
+      max-width: 1100px;
+      flex-wrap: nowrap;
+      align-items: flex-start;
+    }
+
   </style>
 </head>
 
@@ -242,11 +271,11 @@
   </header>
 
   <nav>
-    <a href="#" class="active">FAN</a>
-    <a href="artist.html">ARTIST</a>
-    <a href="media.html">MEDIA</a>
-    <a href="videos.html">VIDEOS</a>
-    <a href="achievements.html">ACHIEVEMENTS</a>
+    <a href="index.html" class="active">FAN</a>
+    <a href="Artist.html">ARTIST</a>
+    <a href="Media.html">MEDIA</a>
+    <a href="Videos.html">VIDEOS</a>
+    <a href="Achievement.html">ACHIEVEMENTS</a>
   </nav>
 
   <div class="slideshow">
@@ -264,10 +293,12 @@
     <div class="post-column">
       <div class="post-box">
         <input type="text" id="nameInput" placeholder="Your name" />
-        <input type="text" id="postInput" placeholder="Write a post for Seventeen" />
+        <input type="text" id="postInput" placeholder="Write a post for SEVENTEEN" />
         <button onclick="addPost()">📤</button>
       </div>
-      <div class="posts" id="posts"></div>
+      <div class="posts" id="posts">
+        <!-- Posts will appear here -->
+      </div>
     </div>
 
     <div class="player">
@@ -287,8 +318,9 @@
     </div>
   </div>
 
-  <iframe class="youtube-video" src="https://www.youtube.com/embed/9lZ-lOGZm_E" title="SEVENTEEN Latest MV" frameborder="0"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  <div class="video-container">
+    <iframe src="https://www.youtube.com/embed/9lZ-lOGZm_E" title="SEVENTEEN Latest MV" allowfullscreen></iframe>
+  </div>
 
   <audio id="audio" controls style="display: none">
     <source src="Music/cty.mp3" type="audio/mpeg" />
@@ -350,7 +382,7 @@
         post.className = "post";
 
         post.innerHTML = `
-          <strong><img src="Photos/logo.png" alt="Logo" style="height: 20px; vertical-align: middle; margin-right: 8px;">${name}</strong><br>
+          <strong>${name}</strong><br>
           <span>${content}</span><hr>
         `;
 
