@@ -1,1 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SEVENTEEN Fan Page</title>
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f9f9fb;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #8300ce;
+      color: white;
+      padding: 10px 20px;
+    }
+
+    .logo {
+      font-size: 1.5em;
+      font-weight: bold;
+    }
+
+    .nav-links a {
+      color: white;
+      margin: 0 10px;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .nav-links a.active {
+      border-bottom: 2px solid white;
+    }
+
+    .icons span {
+      margin-left: 15px;
+      cursor: pointer;
+    }
+
+    .content {
+      padding: 20px;
+      display: grid;
+      gap: 20px;
+    }
+
+    .posts {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .post {
+      background: white;
+      border-radius: 12px;
+      padding: 15px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      flex: 1;
+      min-width: 250px;
+      max-width: 300px;
+      display: flex;
+      gap: 10px;
+    }
+
+    .avatar {
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+    }
+
+    .write-post input {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ddd;
+      border-radius: 20px;
+      font-size: 1em;
+    }
+
+    .recent {
+      background: white;
+      padding: 15px;
+      border-radius: 12px;
+    }
+
+    .group-card {
+      position: relative;
+      max-width: 500px;
+    }
+
+    .group-card img {
+      width: 100%;
+      border-radius: 12px;
+    }
+
+    .members {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      background: #8300ce;
+      color: white;
+      padding: 5px 10px;
+      border-radius: 8px;
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">SEVENTEEN</div>
+    <nav class="nav-links">
+      <a href="#" class="active">Fan</a>
+      <a href="#">Artist</a>
+      <a href="#">Media</a>
+      <a href="#">Videos</a>
+      <a href="#">Achievements</a>
+    </nav>
+    <div class="icons">
+      <span>🔍</span>
+      <span>🔔</span>
+      <span>👤</span>
+      <span>⚙️</span>
+    </div>
+  </header>
+
+  <main class="content">
+    <section class="posts">
+      <div class="post">
+        <img src="https://via.placeholder.com/40" alt="User" class="avatar" />
+        <div class="text">
+          <strong>총괄리더</strong>
+          <p>@우림 ▦▤▥, May the weather be nice...</p>
+          <a href="#">See original (한국어)</a>
+        </div>
+      </div>
+      <div class="post">
+        <img src="https://via.placeholder.com/40" alt="User" class="avatar" />
+        <div class="text">
+          <strong>총괄리더</strong>
+          <p>Bboo bboo bboo~~~</p>
+          <a href="#">See original (한국어)</a>
+        </div>
+      </div>
+      <div class="post">
+        <img src="https://via.placeholder.com/40" alt="User" class="avatar" />
+        <div class="text">
+          <strong>캐럿 바라기 🌻</strong>
+          <p>They’re all songs that we worked hard on, so please love them a lot. 💜💙</p>
+          <a href="#">See original (한국어)</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="write-post">
+      <input type="text" placeholder="Write a post on Weverse" />
+    </section>
+
+    <section class="recent">
+      <h3>Recent</h3>
+      <div class="comment">
+        <strong>Sopiee 💙</strong>
+        <p>i miss you, my love hoshi~~</p>
+      </div>
+    </section>
+
+    <section class="group-card">
+      <img src="Artist.png" alt="SEVENTEEN group" />
+      <div class="members">9.1M members</div>
+    </section>
+  </main>
+</body>
+</html>
 
