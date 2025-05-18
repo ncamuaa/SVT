@@ -2,8 +2,8 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>SEVENTEEN Fan Page</title>
   <style>
     body {
@@ -35,18 +35,24 @@
       justify-content: center;
       background-color: #d2f0ff;
       padding: 10px;
+      gap: 30px; /* spacing between nav links */
     }
 
     nav a {
-      margin: 0 15px;
       text-decoration: none;
       color: black;
       font-weight: bold;
+      padding-bottom: 5px;
+    }
+
+    nav a.active {
+      border-bottom: 2px solid black;
     }
 
     .slideshow {
       position: relative;
-      width: 80%;
+      width: 851px;
+      height: 315px;
       margin: 20px auto;
       overflow: hidden;
     }
@@ -58,7 +64,9 @@
     }
 
     .slides img {
-      width: 100%;
+      width: 851px;
+      height: 315px;
+      object-fit: cover;
     }
 
     .arrow {
@@ -81,22 +89,39 @@
       right: 10px;
     }
 
-    .post-box {
-      width: 60%;
+    .interaction-section {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
       margin: 20px auto;
+      flex-wrap: wrap;
+      max-width: 1100px;
+    }
+
+    .post-column {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      min-width: 300px;
+      max-width: 500px;
+      gap: 15px;
+    }
+
+    .post-box {
       background-color: #ffeaea;
       padding: 15px;
       border-radius: 20px;
       display: flex;
+      gap: 10px;
       align-items: center;
-      justify-content: space-between;
     }
 
-    .post-box input {
-      width: 100%;
+    .post-box input[type="text"] {
       padding: 10px;
       border: none;
       border-radius: 10px;
+      font-size: 14px; /* smaller font for fit */
+      flex: 1;
     }
 
     .post-box button {
@@ -104,34 +129,42 @@
       border: none;
       font-size: 24px;
       cursor: pointer;
+      margin-left: 5px;
+      padding: 0 10px;
     }
 
     .posts {
-      width: 60%;
-      margin: 0 auto 40px;
       background-color: white;
       border: 2px solid black;
       border-radius: 20px;
       padding: 15px;
+      max-height: 150px;
+      overflow-y: auto;
+      font-size: 18px; /* bigger post text */
     }
 
-    .post {
-      margin-bottom: 10px;
+    .post strong {
+      font-size: 14px; /* smaller name */
+    }
+
+    .post span {
+      font-size: 20px; /* bigger post text */
     }
 
     .player {
       width: 250px;
-      margin: 20px auto;
       background-color: #fff1f1;
       padding: 20px;
       border-radius: 25px;
       border: 2px solid black;
       text-align: center;
+      height: fit-content;
     }
 
     .controls button {
       margin: 5px;
       font-size: 18px;
+      cursor: pointer;
     }
 
     .song-buttons {
@@ -155,62 +188,122 @@
       border-radius: 5px;
       cursor: pointer;
     }
+
+    footer {
+      background-color: #222;
+      color: #eee;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 14px;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    footer .copyright {
+      flex: 1;
+      min-width: 250px;
+    }
+
+    footer .social-links {
+      flex: 1;
+      display: flex;
+      justify-content: flex-end;
+      gap: 20px;
+      min-width: 250px;
+    }
+
+    footer .social-links a {
+      color: #eee;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    footer .social-links a:hover {
+      text-decoration: underline;
+    }
+
+    .youtube-video {
+      display: block;
+      margin: 20px auto;
+      width: 851px;
+      height: 480px;
+      border-radius: 20px;
+      border: none;
+    }
   </style>
 </head>
 
 <body>
   <header>
-    <img src="logo.png" alt="SEVENTEEN Logo">
+    <img src="Photos/logo.png" alt="SEVENTEEN Logo" />
     <h1>SEVENTEEN</h1>
   </header>
 
   <nav>
-    <a href="#">FAN</a>
-    <a href="#">ARTIST</a>
-    <a href="#">MEDIA</a>
-    <a href="#">VIDEOS</a>
-    <a href="#">ACHIEVEMENTS</a>
+    <a href="#" class="active">FAN</a>
+    <a href="artist.html">ARTIST</a>
+    <a href="media.html">MEDIA</a>
+    <a href="videos.html">VIDEOS</a>
+    <a href="achievements.html">ACHIEVEMENTS</a>
   </nav>
 
   <div class="slideshow">
     <button class="arrow left" onclick="prevSlide()">❮</button>
     <div class="slides" id="slides">
-      <img src="header 1.jpg" alt="Header 1">
-      <img src="header 2.jpg" alt="Header 2">
-      <img src="header 3.jpg" alt="Header 3">
-      <img src="header 4.jpg" alt="Header 4">
+      <img src="Photos/header 1.jpeg" alt="Header 1" />
+      <img src="Photos/header 2.jpeg" alt="Header 2" />
+      <img src="Photos/header 3.jpeg" alt="Header 3" />
+      <img src="Photos/header 4.jpeg" alt="Header 4" />
     </div>
     <button class="arrow right" onclick="nextSlide()">❯</button>
   </div>
 
-  <div class="post-box">
-    <input type="text" id="postInput" placeholder="Write a post for Seventeen">
-    <button onclick="addPost()">✈️</button>
-  </div>
-
-  <div class="posts" id="posts">
-    <!-- Posts will appear here -->
-  </div>
-
-  <div class="player">
-    <h3>HOME</h3>
-    <div class="controls">
-      <button onclick="audio.currentTime = 0">⏮</button>
-      <button onclick="togglePlay()">▶️</button>
-      <button onclick="audio.pause()">⏸</button>
-      <button onclick="audio.currentTime += 5">⏭</button>
+  <div class="interaction-section">
+    <div class="post-column">
+      <div class="post-box">
+        <input type="text" id="nameInput" placeholder="Your name" />
+        <input type="text" id="postInput" placeholder="Write a post for Seventeen" />
+        <button onclick="addPost()">📤</button>
+      </div>
+      <div class="posts" id="posts"></div>
     </div>
-    <div class="song-buttons">
-      <button class="blue" onclick="changeSong('campfire.mp3')">Campfire</button>
-      <button class="blue" onclick="changeSong('hug.mp3')">Hug</button>
-      <button class="pink" onclick="changeSong('pinwheel.mp3')">Pinwheel</button>
-      <button class="pink" onclick="changeSong('cty.mp3')">CTY</button>
+
+    <div class="player">
+      <h3 id="currentSong"></h3>
+      <div class="controls">
+        <button onclick="audio.currentTime = 0">⏮</button>
+        <button onclick="togglePlay()">▶️</button>
+        <button onclick="audio.pause()">⏸</button>
+        <button onclick="audio.currentTime += 5">⏭</button>
+      </div>
+      <div class="song-buttons">
+        <button class="blue" onclick="changeSong('Music/campfire.mp3', 'Campfire')">Campfire</button>
+        <button class="blue" onclick="changeSong('Music/hug.mp3', 'Hug')">Hug</button>
+        <button class="pink" onclick="changeSong('Music/pinwheel.mp3', 'Pinwheel')">Pinwheel</button>
+        <button class="pink" onclick="changeSong('Music/cty.mp3', 'Cheers to Youth')">Cheers to Youth</button>
+      </div>
     </div>
   </div>
 
-  <audio id="audio" controls style="display:none;">
-    <source src="cty.mp3" type="audio/mpeg" />
+  <iframe class="youtube-video" src="https://www.youtube.com/embed/9lZ-lOGZm_E" title="SEVENTEEN Latest MV" frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+  <audio id="audio" controls style="display: none">
+    <source src="Music/cty.mp3" type="audio/mpeg" />
   </audio>
+
+  <footer>
+    <div class="copyright">
+      (C) 2025 SEVENTEEN CARAT. ALL RIGHTS RESERVED.
+    </div>
+    <div class="social-links">
+      <a href="https://x.com/pledis_17" target="_blank" rel="noopener noreferrer">X</a>
+      <a href="https://www.instagram.com/saythename_17/" target="_blank" rel="noopener noreferrer">Instagram</a>
+      <a href="https://www.youtube.com/@pledis17" target="_blank" rel="noopener noreferrer">YouTube</a>
+    </div>
+  </footer>
 
   <script>
     let currentSlide = 0;
@@ -221,7 +314,7 @@
       if (index >= totalSlides) currentSlide = 0;
       else if (index < 0) currentSlide = totalSlides - 1;
       else currentSlide = index;
-      slides.style.transform = `translateX(-${currentSlide * 100}%)`;
+      slides.style.transform = `translateX(-${currentSlide * 851}px)`;
     }
 
     function nextSlide() {
@@ -232,19 +325,50 @@
       showSlide(currentSlide - 1);
     }
 
-    function addPost() {
-      const input = document.getElementById("postInput");
+    function savePosts() {
       const posts = document.getElementById("posts");
-      if (input.value.trim() !== "") {
-        const post = document.createElement("div");
-        post.className = "post";
-        post.textContent = input.value;
-        posts.prepend(post);
-        input.value = "";
+      localStorage.setItem("seventeenPosts", posts.innerHTML);
+    }
+
+    function loadPosts() {
+      const saved = localStorage.getItem("seventeenPosts");
+      if (saved) {
+        document.getElementById("posts").innerHTML = saved;
       }
     }
 
+    function addPost() {
+      const nameInput = document.getElementById("nameInput");
+      const postInput = document.getElementById("postInput");
+      const posts = document.getElementById("posts");
+
+      const name = nameInput.value.trim() || "Anonymous";
+      const content = postInput.value.trim();
+
+      if (content !== "") {
+        const post = document.createElement("div");
+        post.className = "post";
+
+        post.innerHTML = `
+          <strong><img src="Photos/logo.png" alt="Logo" style="height: 20px; vertical-align: middle; margin-right: 8px;">${name}</strong><br>
+          <span>${content}</span><hr>
+        `;
+
+        posts.prepend(post);
+
+        savePosts();
+
+        nameInput.value = "";
+        postInput.value = "";
+      }
+    }
+
+    window.onload = () => {
+      loadPosts();
+    };
+
     const audio = document.getElementById("audio");
+    const currentSongTitle = document.getElementById("currentSong");
 
     function togglePlay() {
       if (audio.paused) {
@@ -254,9 +378,10 @@
       }
     }
 
-    function changeSong(song) {
+    function changeSong(song, title) {
       audio.src = song;
       audio.play();
+      currentSongTitle.textContent = title;
     }
   </script>
 </body>
