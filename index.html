@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SEVENTEEN Fan Page</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f8f8f8;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      background-color: #ffffff;
+      padding: 10px 20px;
+      border-bottom: 2px solid #ddd;
+    }
+
+    header img {
+      height: 40px;
+      margin-right: 10px;
+    }
+
+    header h1 {
+      font-size: 24px;
+      margin: 0;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      background-color: #d2f0ff;
+      padding: 10px;
+    }
+
+    nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: black;
+      font-weight: bold;
+    }
+
+    .slideshow {
+      position: relative;
+      width: 80%;
+      margin: 20px auto;
+      overflow: hidden;
+    }
+
+    .slides {
+      display: flex;
+      width: 400%;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .slides img {
+      width: 100%;
+    }
+
+    .arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 24px;
+      background-color: rgba(255, 255, 255, 0.6);
+      border: none;
+      cursor: pointer;
+      padding: 10px;
+      z-index: 1;
+    }
+
+    .left {
+      left: 10px;
+    }
+
+    .right {
+      right: 10px;
+    }
+
+    .post-box {
+      width: 60%;
+      margin: 20px auto;
+      background-color: #ffeaea;
+      padding: 15px;
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .post-box input {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 10px;
+    }
+
+    .post-box button {
+      background-color: transparent;
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    .posts {
+      width: 60%;
+      margin: 0 auto 40px;
+      background-color: white;
+      border: 2px solid black;
+      border-radius: 20px;
+      padding: 15px;
+    }
+
+    .post {
+      margin-bottom: 10px;
+    }
+
+    .player {
+      width: 250px;
+      margin: 20px auto;
+      background-color: #fff1f1;
+      padding: 20px;
+      border-radius: 25px;
+      border: 2px solid black;
+      text-align: center;
+    }
+
+    .controls button {
+      margin: 5px;
+      font-size: 18px;
+    }
+
+    .song-buttons {
+      margin-top: 10px;
+    }
+
+    .blue {
+      background-color: #d2f0ff;
+      border: none;
+      padding: 8px 15px;
+      margin: 5px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .pink {
+      background-color: #ffd7d7;
+      border: none;
+      padding: 8px 15px;
+      margin: 5px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <img src="logo.png" alt="SEVENTEEN Logo">
+    <h1>SEVENTEEN</h1>
+  </header>
+
+  <nav>
+    <a href="#">FAN</a>
+    <a href="#">ARTIST</a>
+    <a href="#">MEDIA</a>
+    <a href="#">VIDEOS</a>
+    <a href="#">ACHIEVEMENTS</a>
+  </nav>
+
+  <div class="slideshow">
+    <button class="arrow left" onclick="prevSlide()">❮</button>
+    <div class="slides" id="slides">
+      <img src="header 1.jpg" alt="Header 1">
+      <img src="header 2.jpg" alt="Header 2">
+      <img src="header 3.jpg" alt="Header 3">
+      <img src="header 4.jpg" alt="Header 4">
+    </div>
+    <button class="arrow right" onclick="nextSlide()">❯</button>
+  </div>
+
+  <div class="post-box">
+    <input type="text" id="postInput" placeholder="Write a post for Seventeen">
+    <button onclick="addPost()">✈️</button>
+  </div>
+
+  <div class="posts" id="posts">
+    <!-- Posts will appear here -->
+  </div>
+
+  <div class="player">
+    <h3>HOME</h3>
+    <div class="controls">
+      <button onclick="audio.currentTime = 0">⏮</button>
+      <button onclick="togglePlay()">▶️</button>
+      <button onclick="audio.pause()">⏸</button>
+      <button onclick="audio.currentTime += 5">⏭</button>
+    </div>
+    <div class="song-buttons">
+      <button class="blue" onclick="changeSong('campfire.mp3')">Campfire</button>
+      <button class="blue" onclick="changeSong('hug.mp3')">Hug</button>
+      <button class="pink" onclick="changeSong('pinwheel.mp3')">Pinwheel</button>
+      <button class="pink" onclick="changeSong('cty.mp3')">CTY</button>
+    </div>
+  </div>
+
+  <audio id="audio" controls style="display:none;">
+    <source src="cty.mp3" type="audio/mpeg" />
+  </audio>
+
+  <script>
+    let currentSlide = 0;
+
+    function showSlide(index) {
+      const slides = document.getElementById("slides");
+      const totalSlides = slides.children.length;
+      if (index >= totalSlides) currentSlide = 0;
+      else if (index < 0) currentSlide = totalSlides - 1;
+      else currentSlide = index;
+      slides.style.transform = `translateX(-${currentSlide * 100}%)`;
+    }
+
+    function nextSlide() {
+      showSlide(currentSlide + 1);
+    }
+
+    function prevSlide() {
+      showSlide(currentSlide - 1);
+    }
+
+    function addPost() {
+      const input = document.getElementById("postInput");
+      const posts = document.getElementById("posts");
+      if (input.value.trim() !== "") {
+        const post = document.createElement("div");
+        post.className = "post";
+        post.textContent = input.value;
+        posts.prepend(post);
+        input.value = "";
+      }
+    }
+
+    const audio = document.getElementById("audio");
+
+    function togglePlay() {
+      if (audio.paused) {
+        audio.play();
+      } else {
+        audio.pause();
+      }
+    }
+
+    function changeSong(song) {
+      audio.src = song;
+      audio.play();
+    }
+  </script>
+</body>
+
+</html>
