@@ -78,29 +78,53 @@
       font-weight: bold;
     }
 
-    .profile-detail {
-      max-width: 800px;
+    .profile-section {
+      max-width: 1000px;
       margin: 40px auto;
       background-color: #fff1f1;
       border-radius: 20px;
       padding: 20px;
       border: 2px solid #333;
+      display: flex;
+      align-items: center;
     }
 
-    .profile-detail h2 {
-      margin-top: 0;
-    }
-
-    .profile-detail img {
-      max-width: 250px;
-      float: left;
+    .slideshow {
+      position: relative;
+      width: 300px;
+      height: 400px;
       margin-right: 20px;
+    }
+
+    .slideshow img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
       border-radius: 10px;
     }
 
-    .profile-detail p {
-      font-size: 16px;
-      line-height: 1.6;
+    .slide-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(0,0,0,0.5);
+      color: white;
+      border: none;
+      font-size: 24px;
+      padding: 10px;
+      cursor: pointer;
+    }
+
+    .prev-btn {
+      left: 0;
+    }
+
+    .next-btn {
+      right: 0;
+    }
+
+    .profile-info {
+      flex: 1;
     }
 
     .spacer {
@@ -132,57 +156,57 @@
 
   <main id="main-content">
     <div class="container" id="members">
-      <!-- 13 Members -->
+      <!-- Repeat for each member -->
       <div class="member-card" onclick="goToProfile('Choi Seungcheol')">
-        <img src="Photos/scoups.jpg" alt="S.Coups" />
+        <img src="Photos/scoups.jpg" alt="Choi Seungcheol" />
         <span>Choi Seungcheol</span>
       </div>
       <div class="member-card" onclick="goToProfile('Yoon Jeonghan')">
-        <img src="Photos/jeonghan.jpg" alt="Jeonghan" />
+        <img src="Photos/jeonghan.jpg" alt="Yoon Jeonghan" />
         <span>Yoon Jeonghan</span>
       </div>
-      <div class="member-card" onclick="goToProfile('Hong Jisoo')">
-        <img src="Photos/joshua.jpg" alt="Joshua" />
-        <span>Hong Jisoo</span>
+      <div class="member-card" onclick="goToProfile('Joshua Hong')">
+        <img src="Photos/joshua.jpg" alt="Joshua Hong" />
+        <span>Joshua Hong</span>
       </div>
       <div class="member-card" onclick="goToProfile('Wen Junhui')">
-        <img src="Photos/jun.jpg" alt="Jun" />
+        <img src="Photos/jun.jpg" alt="Wen Junhui" />
         <span>Wen Junhui</span>
       </div>
       <div class="member-card" onclick="goToProfile('Kwon Soonyoung')">
-        <img src="Photos/hoshi.jpg" alt="Hoshi" />
+        <img src="Photos/hoshi.jpg" alt="Kwon Soonyoung" />
         <span>Kwon Soonyoung</span>
       </div>
       <div class="member-card" onclick="goToProfile('Jeon Wonwoo')">
-        <img src="Photos/wonwoo.jpg" alt="Wonwoo" />
+        <img src="Photos/wonwoo.jpg" alt="Jeon Wonwoo" />
         <span>Jeon Wonwoo</span>
       </div>
       <div class="member-card" onclick="goToProfile('Lee Jihoon')">
-        <img src="Photos/woozi.jpg" alt="Woozi" />
+        <img src="Photos/woozi.jpg" alt="Lee Jihoon" />
         <span>Lee Jihoon</span>
       </div>
-      <div class="member-card" onclick="goToProfile('Lee Dokyeom')">
-        <img src="Photos/dk.jpg" alt="DK" />
-        <span>Lee Dokyeom</span>
+      <div class="member-card" onclick="goToProfile('Lee Seokmin')">
+        <img src="Photos/dk.jpg" alt="Lee Seokmin" />
+        <span>Lee Seokmin</span>
       </div>
       <div class="member-card" onclick="goToProfile('Kim Mingyu')">
-        <img src="Photos/mingyu.jpg" alt="Mingyu" />
+        <img src="Photos/mingyu.jpg" alt="Kim Mingyu" />
         <span>Kim Mingyu</span>
       </div>
       <div class="member-card" onclick="goToProfile('Xu Minghao')">
-        <img src="Photos/the8.jpg" alt="The8" />
+        <img src="Photos/the8.jpg" alt="Xu Minghao" />
         <span>Xu Minghao</span>
       </div>
       <div class="member-card" onclick="goToProfile('Boo Seungkwan')">
-        <img src="Photos/seungkwan.jpg" alt="Seungkwan" />
+        <img src="Photos/seungkwan.jpg" alt="Boo Seungkwan" />
         <span>Boo Seungkwan</span>
       </div>
-      <div class="member-card" onclick="goToProfile('Hansol Vernon Chwe')">
-        <img src="Photos/vernon.jpg" alt="Vernon" />
-        <span>Hansol Vernon Chwe</span>
+      <div class="member-card" onclick="goToProfile('Chwe Hansol')">
+        <img src="Photos/vernon.jpg" alt="Chwe Hansol" />
+        <span>Chwe Hansol</span>
       </div>
       <div class="member-card" onclick="goToProfile('Lee Chan')">
-        <img src="Photos/dino.jpg" alt="Dino" />
+        <img src="Photos/dino.jpg" alt="Lee Chan" />
         <span>Lee Chan</span>
       </div>
     </div>
@@ -196,87 +220,87 @@
     (C) 2025 SEVENTEEN CARAT. ALL RIGHTS RESERVED.
   </footer>
 
- <script>
-  const profiles = {
-    "Choi Seungcheol": {
-      name: "Choi Seungcheol (S.Coups)",
-      team: "Hip-hop Team",
-      description: "Leader of SEVENTEEN. Charismatic and protective of his members.",
-      image: "Photos/scoups.jpg"
-    },
-    "Yoon Jeonghan": {
-      name: "Yoon Jeonghan",
-      team: "Vocal Team",
-      description: "Known for his angelic looks and witty humor.",
-      image: "Photos/jeonghan.jpg"
-    },
-    "Hong Jisoo": {
-      name: "Hong Jisoo (Joshua)",
-      team: "Vocal Team",
-      description: "Born in LA. Gentle and thoughtful.",
-      image: "Photos/joshua.jpg"
-    },
-    "Wen Junhui": {
-      name: "Wen Junhui (Jun)",
-      team: "Performance Team",
-      description: "A Chinese member known for his elegance and calmness.",
-      image: "Photos/jun.jpg"
-    },
-    "Kwon Soonyoung": {
-      name: "Kwon Soonyoung (Hoshi)",
-      team: "Performance Team",
-      description: "Leader of the Performance Team. Energetic and loves tigers.",
-      image: "Photos/hoshi.jpg"
-    },
-    "Jeon Wonwoo": {
-      name: "Jeon Wonwoo",
-      team: "Hip-hop Team",
-      description: "Quiet and intellectual with a deep voice.",
-      image: "Photos/wonwoo.jpg"
-    },
-    "Lee Jihoon": {
-      name: "Lee Jihoon (Woozi)",
-      team: "Vocal Team",
-      description: "Team leader and producer. Passionate and hardworking.",
-      image: "Photos/woozi.jpg"
-    },
-    "Lee Dokyeom": {
-      name: "Lee Dokyeom (DK)",
-      team: "Vocal Team",
-      description: "Known for his powerful voice and bright personality.",
-      image: "Photos/dk.jpg"
-    },
-    "Kim Mingyu": {
-      name: "Kim Mingyu",
-      team: "Hip-hop Team",
-      description: "Tall, charming, and known for his visuals and clumsiness.",
-      image: "Photos/mingyu.jpg"
-    },
-    "Xu Minghao": {
-      name: "Xu Minghao (The8)",
-      team: "Performance Team",
-      description: "Chinese member known for his artistry and calm aura.",
-      image: "Photos/the8.jpg"
-    },
-    "Boo Seungkwan": {
-      name: "Boo Seungkwan",
-      team: "Vocal Team",
-      description: "Known for his variety skills and emotional vocals.",
-      image: "Photos/seungkwan.jpg"
-    },
-    "Hansol Vernon Chwe": {
-      name: "Hansol Vernon Chwe (Vernon)",
-      team: "Hip-hop Team",
-      description: "Korean-American known for his deep thoughts and unique rap.",
-      image: "Photos/vernon.jpg"
-    },
-    "Lee Chan": {
-      name: "Lee Chan (Dino)",
-      team: "Performance Team",
-      description: "Maknae and talented dancer with confident stage presence.",
-      image: "Photos/dino.jpg"
-    }
-  };
+  <script>
+    const profiles = {
+      "Choi Seungcheol": {
+        name: "Choi Seungcheol (S.Coups)",
+        team: "Hip-hop Team",
+        description: "Leader of SEVENTEEN. Charismatic and protective of his members.",
+        images: ["Photos/scoups.jpg"]
+      },
+      "Yoon Jeonghan": {
+        name: "Yoon Jeonghan",
+        team: "Vocal Team",
+        description: "Known for his angelic visuals and caring personality.",
+        images: ["Photos/jeonghan.jpg"]
+      },
+      "Joshua Hong": {
+        name: "Joshua Hong",
+        team: "Vocal Team",
+        description: "Korean-American member known for his soft voice and gentlemanly vibe.",
+        images: ["Photos/joshua.jpg"]
+      },
+      "Wen Junhui": {
+        name: "Wen Junhui (Jun)",
+        team: "Performance Team",
+        description: "Chinese member with strong acting and dancing skills.",
+        images: ["Photos/jun.jpg"]
+      },
+      "Kwon Soonyoung": {
+        name: "Kwon Soonyoung (Hoshi)",
+        team: "Performance Team",
+        description: "Energetic performance leader known for his tiger-like charisma.",
+        images: ["Photos/hoshi.jpg"]
+      },
+      "Jeon Wonwoo": {
+        name: "Jeon Wonwoo",
+        team: "Hip-hop Team",
+        description: "Deep-voiced rapper with a calm and cool presence.",
+        images: ["Photos/wonwoo.jpg"]
+      },
+      "Lee Jihoon": {
+        name: "Lee Jihoon (Woozi)",
+        team: "Vocal Team",
+        description: "Main producer of SEVENTEEN’s music and a vocal powerhouse.",
+        images: ["Photos/woozi.jpg"]
+      },
+      "Lee Seokmin": {
+        name: "Lee Seokmin (DK)",
+        team: "Vocal Team",
+        description: "Known for his powerful vocals and bright personality.",
+        images: ["Photos/dk.jpg"]
+      },
+      "Kim Mingyu": {
+        name: "Kim Mingyu",
+        team: "Hip-hop Team",
+        description: "Visual of the group with a tall frame and gentle heart.",
+        images: ["Photos/mingyu.jpg"]
+      },
+      "Xu Minghao": {
+        name: "Xu Minghao (The8)",
+        team: "Performance Team",
+        description: "Chinese member with elegant dance skills and artistic flair.",
+        images: ["Photos/the8.jpg"]
+      },
+      "Boo Seungkwan": {
+        name: "Boo Seungkwan",
+        team: "Vocal Team",
+        description: "Main vocal and variety king with wit and heart.",
+        images: ["Photos/seungkwan.jpg"]
+      },
+      "Chwe Hansol": {
+        name: "Chwe Hansol (Vernon)",
+        team: "Hip-hop Team",
+        description: "Korean-American rapper with cool visuals and unique style.",
+        images: ["Photos/vernon.jpg"]
+      },
+      "Lee Chan": {
+        name: "Lee Chan (Dino)",
+        team: "Performance Team",
+        description: "Youngest member (maknae) and powerful dancer.",
+        images: ["Photos/dino.jpg"]
+      }
+    };
 
     function goToProfile(name) {
       window.location.href = `Artist.html?member=${encodeURIComponent(name)}`;
@@ -287,15 +311,34 @@
       const memberName = urlParams.get('member');
       if (memberName && profiles[memberName]) {
         const p = profiles[memberName];
+        let currentSlide = 0;
+
+        function updateSlide() {
+          document.getElementById('slide-image').src = p.images[currentSlide];
+        }
+
         const profileHTML = `
-          <div class="profile-detail">
-            <h2>${p.name}</h2>
-            <img src="${p.image}" alt="${p.name}" />
-            <p>${p.description}</p>
+          <div class="profile-section">
+            <div class="slideshow">
+              <button class="slide-btn prev-btn" onclick="changeSlide(-1)">&#10094;</button>
+              <img id="slide-image" src="${p.images[0]}" alt="${p.name}" />
+              <button class="slide-btn next-btn" onclick="changeSlide(1)">&#10095;</button>
+            </div>
+            <div class="profile-info">
+              <h2>${p.name}</h2>
+              <p><strong>Team:</strong> ${p.team}</p>
+              <p>${p.description}</p>
+            </div>
           </div>
         `;
+
         document.getElementById('members').style.display = 'none';
         document.getElementById('profile').innerHTML = profileHTML;
+
+        window.changeSlide = function (direction) {
+          currentSlide = (currentSlide + direction + p.images.length) % p.images.length;
+          updateSlide();
+        };
       }
     }
 
