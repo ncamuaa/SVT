@@ -56,7 +56,7 @@
     }
 
     .section {
-      margin-bottom: 40px;
+      margin-bottom: 50px;
     }
 
     .section h2 {
@@ -65,14 +65,15 @@
     }
 
     .video-grid {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(45%, 1fr));
+      gap: 30px;
+      justify-items: center;
     }
 
     .video-thumb {
-      width: 280px;
+      width: 100%;
+      max-width: 400px;
       cursor: pointer;
       text-align: center;
     }
@@ -141,63 +142,96 @@
   <nav>
     <a href="index.html">FAN</a>
     <a href="Artist.html">ARTIST</a>
-    <a href="Media.html">MEDIA</a>
     <a href="Videos.html" class="active">VIDEOS</a>
-    <a href="Achievement.html">ACHIEVEMENTS</a>
   </nav>
 
   <main>
     <div id="videoGallery">
-      <!-- Music Videos Section -->
+      <!-- Music Videos -->
       <div class="section">
         <h2>Music Videos</h2>
         <div class="video-grid">
-          <div class="video-thumb" onclick="playVideo('videos/music1.mp4', 'HOT MV')">
-            <img src="thumbnails/music1.jpg" alt="HOT MV" />
-            <span>HOT</span>
+          <div class="video-thumb" onclick="playVideo('videos/music1.mp4', 'Music Video 1')">
+            <img src="thumbnails/music1.jpg" alt="Music 1" />
+            <span>Music Video 1</span>
           </div>
-          <div class="video-thumb" onclick="playVideo('videos/music2.mp4', 'Super MV')">
-            <img src="thumbnails/music2.jpg" alt="Super MV" />
-            <span>Super</span>
+          <div class="video-thumb" onclick="playVideo('videos/music2.mp4', 'Music Video 2')">
+            <img src="thumbnails/music2.jpg" alt="Music 2" />
+            <span>Music Video 2</span>
           </div>
-          <div class="video-thumb" onclick="playVideo('videos/music3.mp4', 'Rock With You MV')">
-            <img src="thumbnails/music3.jpg" alt="Rock With You MV" />
-            <span>Rock With You</span>
+          <div class="video-thumb" onclick="playVideo('videos/music3.mp4', 'Music Video 3')">
+            <img src="thumbnails/music3.jpg" alt="Music 3" />
+            <span>Music Video 3</span>
           </div>
-          <div class="video-thumb" onclick="playVideo('videos/music4.mp4', 'Ready to Love MV')">
-            <img src="thumbnails/music4.jpg" alt="Ready to Love MV" />
-            <span>Ready to Love</span>
+          <div class="video-thumb" onclick="playVideo('videos/music4.mp4', 'Music Video 4')">
+            <img src="thumbnails/music4.jpg" alt="Music 4" />
+            <span>Music Video 4</span>
           </div>
-          <div class="video-thumb" onclick="playVideo('videos/music5.mp4', 'Don’t Wanna Cry MV')">
-            <img src="thumbnails/music5.jpg" alt="Don’t Wanna Cry MV" />
-            <span>Don’t Wanna Cry</span>
+          <div class="video-thumb" onclick="playVideo('videos/music5.mp4', 'Music Video 5')">
+            <img src="thumbnails/music5.jpg" alt="Music 5" />
+            <span>Music Video 5</span>
+          </div>
+          <div class="video-thumb" onclick="playVideo('videos/music6.mp4', 'Music Video 6')">
+            <img src="thumbnails/music6.jpg" alt="Music 6" />
+            <span>Music Video 6</span>
           </div>
         </div>
       </div>
 
-      <!-- Dance Practice Section -->
+      <!-- Dance Practice -->
       <div class="section">
-        <h2>Dance Practice</h2>
+        <h2>Dance Practices</h2>
         <div class="video-grid">
-          <div class="video-thumb" onclick="playVideo('videos/dance1.mp4', 'Rock With You Practice')">
-            <img src="thumbnails/dance1.jpg" alt="Rock With You Practice" />
-            <span>Rock With You</span>
+          <div class="video-thumb" onclick="playVideo('videos/dance1.mp4', 'Dance Practice 1')">
+            <img src="thumbnails/dance1.jpg" alt="Dance 1" />
+            <span>Dance Practice 1</span>
           </div>
-          <div class="video-thumb" onclick="playVideo('videos/dance2.mp4', 'Super Practice')">
-            <img src="thumbnails/dance2.jpg" alt="Super Practice" />
-            <span>Super</span>
+          <div class="video-thumb" onclick="playVideo('videos/dance2.mp4', 'Dance Practice 2')">
+            <img src="thumbnails/dance2.jpg" alt="Dance 2" />
+            <span>Dance Practice 2</span>
           </div>
-          <div class="video-thumb" onclick="playVideo('videos/dance3.mp4', 'HOT Practice')">
-            <img src="thumbnails/dance3.jpg" alt="HOT Practice" />
-            <span>HOT</span>
+          <div class="video-thumb" onclick="playVideo('videos/dance3.mp4', 'Dance Practice 3')">
+            <img src="thumbnails/dance3.jpg" alt="Dance 3" />
+            <span>Dance Practice 3</span>
           </div>
-          <div class="video-thumb" onclick="playVideo('videos/dance4.mp4', 'Ready to Love Practice')">
-            <img src="thumbnails/dance4.jpg" alt="Ready to Love Practice" />
-            <span>Ready to Love</span>
+          <div class="video-thumb" onclick="playVideo('videos/dance4.mp4', 'Dance Practice 4')">
+            <img src="thumbnails/dance4.jpg" alt="Dance 4" />
+            <span>Dance Practice 4</span>
           </div>
-          <div class="video-thumb" onclick="playVideo('videos/dance5.mp4', 'Don’t Wanna Cry Practice')">
-            <img src="thumbnails/dance5.jpg" alt="Don’t Wanna Cry Practice" />
-            <span>Don’t Wanna Cry</span>
+          <div class="video-thumb" onclick="playVideo('videos/dance5.mp4', 'Dance Practice 5')">
+            <img src="thumbnails/dance5.jpg" alt="Dance 5" />
+            <span>Dance Practice 5</span>
+          </div>
+          <div class="video-thumb" onclick="playVideo('videos/dance6.mp4', 'Dance Practice 6')">
+            <img src="thumbnails/dance6.jpg" alt="Dance 6" />
+            <span>Dance Practice 6</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Behind the Scenes -->
+      <div class="section">
+        <h2>Behind The Scenes</h2>
+        <div class="video-grid">
+          <div class="video-thumb" onclick="playVideo('videos/bts1.mp4', 'Behind The Scenes 1')">
+            <img src="thumbnails/bts1.jpg" alt="Behind 1" />
+            <span>Behind The Scenes 1</span>
+          </div>
+          <div class="video-thumb" onclick="playVideo('videos/bts2.mp4', 'Behind The Scenes 2')">
+            <img src="thumbnails/bts2.jpg" alt="Behind 2" />
+            <span>Behind The Scenes 2</span>
+          </div>
+          <div class="video-thumb" onclick="playVideo('videos/bts3.mp4', 'Behind The Scenes 3')">
+            <img src="thumbnails/bts3.jpg" alt="Behind 3" />
+            <span>Behind The Scenes 3</span>
+          </div>
+          <div class="video-thumb" onclick="playVideo('videos/bts4.mp4', 'Behind The Scenes 4')">
+            <img src="thumbnails/bts4.jpg" alt="Behind 4" />
+            <span>Behind The Scenes 4</span>
+          </div>
+          <div class="video-thumb" onclick="playVideo('videos/bts5.mp4', 'Behind The Scenes 5')">
+            <img src="thumbnails/bts5.jpg" alt="Behind 5" />
+            <span>Behind The Scenes 5</span>
           </div>
         </div>
       </div>
