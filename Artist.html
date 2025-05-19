@@ -1,1 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SEVENTEEN - Artist Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      margin: 0;
+      padding: 0;
+    }
+
+    h1 {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 3em;
+    }
+
+    .grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .member {
+      width: 150px;
+      text-align: center;
+      background: white;
+      padding: 10px;
+      border-radius: 12px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+      transition: transform 0.2s;
+      cursor: pointer;
+    }
+
+    .member:hover {
+      transform: scale(1.05);
+    }
+
+    .member img {
+      width: 100%;
+      border-radius: 8px;
+    }
+
+    .profile-view {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.8);
+      color: #000;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .profile-card {
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      text-align: center;
+      width: 80%;
+      max-width: 600px;
+      position: relative;
+    }
+
+    .profile-card img {
+      width: 200px;
+      border-radius: 12px;
+    }
+
+    .profile-card h2 {
+      margin: 10px 0;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 20px;
+      cursor: pointer;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Members</h1>
+
+  <div class="grid" id="memberGrid">
+    <!-- Member items injected with JS -->
+  </div>
+
+  <div class="profile-view" id="profileView">
+    <div class="profile-card" id="profileCard">
+      <span class="close-btn" onclick="closeProfile()">✖</span>
+      <img id="profileImg" src="" alt="">
+      <h2 id="profileName"></h2>
+      <p id="profileStage"></p>
+      <p id="profileInfo"></p>
+    </div>
+  </div>
+
+  <script>
+    const members = [
+      {
+        name: "Xu Minghao",
+        stage: "THE8",
+        username: "@xuminghao_0",
+        image: "images/placeholder.png",
+        info: "Performer, Chinese member of SEVENTEEN, known for his sharp dance moves."
+      },
+      {
+        name: "Choi Seungcheol",
+        stage: "S.Coups",
+        username: "@s.coups",
+        image: "images/placeholder.png",
+        info: "Leader of SEVENTEEN and member of Hip-Hop Team."
+      },
+      {
+        name: "Yoon Jeonghan",
+        stage: "Jeonghan",
+        username: "@jeonghan",
+        image: "images/placeholder.png",
+        info: "Known for his angelic visuals and vocal talent."
+      },
+      // Add all 13 members similarly...
+    ];
+
+    const grid = document.getElementById("memberGrid");
+    const profileView = document.getElementById("profileView");
+    const profileName = document.getElementById("profileName");
+    const profileStage = document.getElementById("profileStage");
+    const profileInfo = document.getElementById("profileInfo");
+    const profileImg = document.getElementById("profileImg");
+
+    members.forEach((member, index) => {
+      const div = document.createElement("div");
+      div.className = "member";
+      div.innerHTML = `
+        <img src="${member.image}" alt="${member.name}">
+        <a>${member.name}</a>
+      `;
+      div.onclick = () => showProfile(index);
+      grid.appendChild(div);
+    });
+
+    function showProfile(index) {
+      const member = members[index];
+      profileName.textContent = member.name;
+      profileStage.textContent = `Stage Name: ${member.stage} (${member.username})`;
+      profileInfo.textContent = member.info;
+      profileImg.src = member.image;
+      profileView.style.display = "flex";
+    }
+
+    function closeProfile() {
+      profileView.style.display = "none";
+    }
+  </script>
+
+</body>
+</html>
 
