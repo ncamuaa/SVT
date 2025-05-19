@@ -1,1 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SEVENTEEN Videos</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #fefefe;
+    }
+
+    header {
+      background-color: #fff;
+      padding: 20px;
+      text-align: center;
+      font-size: 28px;
+      font-weight: bold;
+      border-bottom: 2px solid #ccc;
+    }
+
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .video-thumb {
+      width: 280px;
+      cursor: pointer;
+      text-align: center;
+    }
+
+    .video-thumb img {
+      width: 100%;
+      border-radius: 10px;
+      border: 2px solid #ddd;
+    }
+
+    .video-thumb span {
+      display: block;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+
+    .video-player {
+      display: none;
+      padding: 40px;
+      text-align: center;
+    }
+
+    .video-player video {
+      max-width: 90%;
+      border: 3px solid #000;
+      border-radius: 10px;
+    }
+
+    .video-player h2 {
+      margin-bottom: 20px;
+    }
+
+    .back-button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #444;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .back-button:hover {
+      background-color: #222;
+    }
+  </style>
+</head>
+<body>
+  <header>SEVENTEEN VIDEO GALLERY</header>
+
+  <div class="container" id="videoGallery">
+    <div class="video-thumb" onclick="playVideo('videos/video1.mp4', 'Behind The Scenes')">
+      <img src="thumbnails/video1.jpg" alt="Video 1">
+      <span>Behind The Scenes</span>
+    </div>
+    <div class="video-thumb" onclick="playVideo('videos/video2.mp4', 'Comeback Stage')">
+      <img src="thumbnails/video2.jpg" alt="Video 2">
+      <span>Comeback Stage</span>
+    </div>
+    <div class="video-thumb" onclick="playVideo('videos/video3.mp4', 'Dance Practice')">
+      <img src="thumbnails/video3.jpg" alt="Video 3">
+      <span>Dance Practice</span>
+    </div>
+    <!-- Add more video entries as needed -->
+  </div>
+
+  <div class="video-player" id="playerSection">
+    <h2 id="videoTitle">Playing...</h2>
+    <video id="videoPlayer" controls autoplay></video>
+    <br>
+    <button class="back-button" onclick="goBack()">← Back to Gallery</button>
+  </div>
+
+  <script>
+    function playVideo(src, title) {
+      document.getElementById("videoGallery").style.display = "none";
+      document.getElementById("playerSection").style.display = "block";
+      document.getElementById("videoTitle").textContent = title;
+      const player = document.getElementById("videoPlayer");
+      player.src = src;
+      player.play();
+    }
+
+    function goBack() {
+      document.getElementById("videoGallery").style.display = "flex";
+      document.getElementById("playerSection").style.display = "none";
+      const player = document.getElementById("videoPlayer");
+      player.pause();
+      player.src = "";
+    }
+  </script>
+</body>
+</html>
 
