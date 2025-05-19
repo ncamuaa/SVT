@@ -1,168 +1,305 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>SEVENTEEN - Artist Page</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SEVENTEEN Members</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      background: #f5f5f5;
+      background-color: #fefefe;
       margin: 0;
       padding: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
 
-    h1 {
-      text-align: center;
-      margin-top: 20px;
-      font-size: 3em;
+    header {
+      background-color: #ffffff;
+      padding: 10px 20px;
+      border-bottom: 2px solid #ddd;
+      display: flex;
+      align-items: center;
     }
 
-    .grid {
+    header img {
+      height: 40px;
+      margin-right: 10px;
+    }
+
+    header h1 {
+      font-size: 24px;
+      margin: 0;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      background-color: #d2f0ff;
+      padding: 10px 0;
+      gap: 40px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: black;
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    nav a.active {
+      border-bottom: 3px solid black;
+    }
+
+    .container {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       gap: 20px;
-      padding: 20px;
+      margin: 20px;
     }
 
-    .member {
-      width: 150px;
+    .member-card {
+      width: 160px;
       text-align: center;
-      background: white;
-      padding: 10px;
-      border-radius: 12px;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-      transition: transform 0.2s;
       cursor: pointer;
     }
 
-    .member:hover {
-      transform: scale(1.05);
-    }
-
-    .member img {
+    .member-card img {
       width: 100%;
-      border-radius: 8px;
-    }
-
-    .profile-view {
-      display: none;
-      position: fixed;
-      top: 0; left: 0;
-      width: 100vw;
-      height: 100vh;
-      background: rgba(0, 0, 0, 0.8);
-      color: #000;
-      justify-content: center;
-      align-items: center;
-      z-index: 1000;
-    }
-
-    .profile-card {
-      background: white;
-      padding: 30px;
-      border-radius: 15px;
-      text-align: center;
-      width: 80%;
-      max-width: 600px;
-      position: relative;
-    }
-
-    .profile-card img {
-      width: 200px;
       border-radius: 12px;
+      border: 2px solid #ccc;
     }
 
-    .profile-card h2 {
-      margin: 10px 0;
+    .member-card span {
+      display: block;
+      margin-top: 8px;
+      font-weight: bold;
     }
 
-    .close-btn {
-      position: absolute;
-      top: 10px;
-      right: 15px;
-      font-size: 20px;
-      cursor: pointer;
-      color: #333;
+    .profile-detail {
+      max-width: 800px;
+      margin: 40px auto;
+      background-color: #fff1f1;
+      border-radius: 20px;
+      padding: 20px;
+      border: 2px solid #333;
+    }
+
+    .profile-detail h2 {
+      margin-top: 0;
+    }
+
+    .profile-detail img {
+      max-width: 250px;
+      float: left;
+      margin-right: 20px;
+      border-radius: 10px;
+    }
+
+    .profile-detail p {
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    .spacer {
+      flex-grow: 1;
+    }
+
+    footer {
+      background-color: #222;
+      color: #eee;
+      padding: 20px;
+      text-align: center;
+      font-size: 14px;
     }
   </style>
 </head>
 <body>
+  <header>
+    <img src="Photos/logo.png" alt="SEVENTEEN Logo" />
+    <h1>SEVENTEEN</h1>
+  </header>
 
-  <h1>Members</h1>
+  <nav>
+    <a href="index.html">FAN</a>
+    <a href="Artist.html" class="active">ARTIST</a>
+    <a href="Media.html">MEDIA</a>
+    <a href="Videos.html">VIDEOS</a>
+    <a href="Achievement.html">ACHIEVEMENTS</a>
+  </nav>
 
-  <div class="grid" id="memberGrid">
-    <!-- Member items injected with JS -->
-  </div>
-
-  <div class="profile-view" id="profileView">
-    <div class="profile-card" id="profileCard">
-      <span class="close-btn" onclick="closeProfile()">✖</span>
-      <img id="profileImg" src="" alt="">
-      <h2 id="profileName"></h2>
-      <p id="profileStage"></p>
-      <p id="profileInfo"></p>
+  <main id="main-content">
+    <div class="container" id="members">
+      <!-- 13 Members -->
+      <div class="member-card" onclick="goToProfile('Choi Seungcheol')">
+        <img src="Photos/scoups.jpg" alt="S.Coups" />
+        <span>Choi Seungcheol</span>
+      </div>
+      <div class="member-card" onclick="goToProfile('Yoon Jeonghan')">
+        <img src="Photos/jeonghan.jpg" alt="Jeonghan" />
+        <span>Yoon Jeonghan</span>
+      </div>
+      <div class="member-card" onclick="goToProfile('Hong Jisoo')">
+        <img src="Photos/joshua.jpg" alt="Joshua" />
+        <span>Hong Jisoo</span>
+      </div>
+      <div class="member-card" onclick="goToProfile('Wen Junhui')">
+        <img src="Photos/jun.jpg" alt="Jun" />
+        <span>Wen Junhui</span>
+      </div>
+      <div class="member-card" onclick="goToProfile('Kwon Soonyoung')">
+        <img src="Photos/hoshi.jpg" alt="Hoshi" />
+        <span>Kwon Soonyoung</span>
+      </div>
+      <div class="member-card" onclick="goToProfile('Jeon Wonwoo')">
+        <img src="Photos/wonwoo.jpg" alt="Wonwoo" />
+        <span>Jeon Wonwoo</span>
+      </div>
+      <div class="member-card" onclick="goToProfile('Lee Jihoon')">
+        <img src="Photos/woozi.jpg" alt="Woozi" />
+        <span>Lee Jihoon</span>
+      </div>
+      <div class="member-card" onclick="goToProfile('Lee Dokyeom')">
+        <img src="Photos/dk.jpg" alt="DK" />
+        <span>Lee Dokyeom</span>
+      </div>
+      <div class="member-card" onclick="goToProfile('Kim Mingyu')">
+        <img src="Photos/mingyu.jpg" alt="Mingyu" />
+        <span>Kim Mingyu</span>
+      </div>
+      <div class="member-card" onclick="goToProfile('Xu Minghao')">
+        <img src="Photos/the8.jpg" alt="The8" />
+        <span>Xu Minghao</span>
+      </div>
+      <div class="member-card" onclick="goToProfile('Boo Seungkwan')">
+        <img src="Photos/seungkwan.jpg" alt="Seungkwan" />
+        <span>Boo Seungkwan</span>
+      </div>
+      <div class="member-card" onclick="goToProfile('Hansol Vernon Chwe')">
+        <img src="Photos/vernon.jpg" alt="Vernon" />
+        <span>Hansol Vernon Chwe</span>
+      </div>
+      <div class="member-card" onclick="goToProfile('Lee Chan')">
+        <img src="Photos/dino.jpg" alt="Dino" />
+        <span>Lee Chan</span>
+      </div>
     </div>
-  </div>
 
-  <script>
-    const members = [
-      {
-        name: "Xu Minghao",
-        stage: "THE8",
-        username: "@xuminghao_0",
-        image: "images/placeholder.png",
-        info: "Performer, Chinese member of SEVENTEEN, known for his sharp dance moves."
-      },
-      {
-        name: "Choi Seungcheol",
-        stage: "S.Coups",
-        username: "@s.coups",
-        image: "images/placeholder.png",
-        info: "Leader of SEVENTEEN and member of Hip-Hop Team."
-      },
-      {
-        name: "Yoon Jeonghan",
-        stage: "Jeonghan",
-        username: "@jeonghan",
-        image: "images/placeholder.png",
-        info: "Known for his angelic visuals and vocal talent."
-      },
-      // Add all 13 members similarly...
-    ];
+    <div id="profile"></div>
+  </main>
 
-    const grid = document.getElementById("memberGrid");
-    const profileView = document.getElementById("profileView");
-    const profileName = document.getElementById("profileName");
-    const profileStage = document.getElementById("profileStage");
-    const profileInfo = document.getElementById("profileInfo");
-    const profileImg = document.getElementById("profileImg");
+  <div class="spacer"></div>
 
-    members.forEach((member, index) => {
-      const div = document.createElement("div");
-      div.className = "member";
-      div.innerHTML = `
-        <img src="${member.image}" alt="${member.name}">
-        <a>${member.name}</a>
-      `;
-      div.onclick = () => showProfile(index);
-      grid.appendChild(div);
-    });
+  <footer>
+    (C) 2025 SEVENTEEN CARAT. ALL RIGHTS RESERVED.
+  </footer>
 
-    function showProfile(index) {
-      const member = members[index];
-      profileName.textContent = member.name;
-      profileStage.textContent = `Stage Name: ${member.stage} (${member.username})`;
-      profileInfo.textContent = member.info;
-      profileImg.src = member.image;
-      profileView.style.display = "flex";
+ <script>
+  const profiles = {
+    "Choi Seungcheol": {
+      name: "Choi Seungcheol (S.Coups)",
+      team: "Hip-hop Team",
+      description: "Leader of SEVENTEEN. Charismatic and protective of his members.",
+      image: "Photos/scoups.jpg"
+    },
+    "Yoon Jeonghan": {
+      name: "Yoon Jeonghan",
+      team: "Vocal Team",
+      description: "Known for his angelic looks and witty humor.",
+      image: "Photos/jeonghan.jpg"
+    },
+    "Hong Jisoo": {
+      name: "Hong Jisoo (Joshua)",
+      team: "Vocal Team",
+      description: "Born in LA. Gentle and thoughtful.",
+      image: "Photos/joshua.jpg"
+    },
+    "Wen Junhui": {
+      name: "Wen Junhui (Jun)",
+      team: "Performance Team",
+      description: "A Chinese member known for his elegance and calmness.",
+      image: "Photos/jun.jpg"
+    },
+    "Kwon Soonyoung": {
+      name: "Kwon Soonyoung (Hoshi)",
+      team: "Performance Team",
+      description: "Leader of the Performance Team. Energetic and loves tigers.",
+      image: "Photos/hoshi.jpg"
+    },
+    "Jeon Wonwoo": {
+      name: "Jeon Wonwoo",
+      team: "Hip-hop Team",
+      description: "Quiet and intellectual with a deep voice.",
+      image: "Photos/wonwoo.jpg"
+    },
+    "Lee Jihoon": {
+      name: "Lee Jihoon (Woozi)",
+      team: "Vocal Team",
+      description: "Team leader and producer. Passionate and hardworking.",
+      image: "Photos/woozi.jpg"
+    },
+    "Lee Dokyeom": {
+      name: "Lee Dokyeom (DK)",
+      team: "Vocal Team",
+      description: "Known for his powerful voice and bright personality.",
+      image: "Photos/dk.jpg"
+    },
+    "Kim Mingyu": {
+      name: "Kim Mingyu",
+      team: "Hip-hop Team",
+      description: "Tall, charming, and known for his visuals and clumsiness.",
+      image: "Photos/mingyu.jpg"
+    },
+    "Xu Minghao": {
+      name: "Xu Minghao (The8)",
+      team: "Performance Team",
+      description: "Chinese member known for his artistry and calm aura.",
+      image: "Photos/the8.jpg"
+    },
+    "Boo Seungkwan": {
+      name: "Boo Seungkwan",
+      team: "Vocal Team",
+      description: "Known for his variety skills and emotional vocals.",
+      image: "Photos/seungkwan.jpg"
+    },
+    "Hansol Vernon Chwe": {
+      name: "Hansol Vernon Chwe (Vernon)",
+      team: "Hip-hop Team",
+      description: "Korean-American known for his deep thoughts and unique rap.",
+      image: "Photos/vernon.jpg"
+    },
+    "Lee Chan": {
+      name: "Lee Chan (Dino)",
+      team: "Performance Team",
+      description: "Maknae and talented dancer with confident stage presence.",
+      image: "Photos/dino.jpg"
+    }
+  };
+
+    function goToProfile(name) {
+      window.location.href = `Artist.html?member=${encodeURIComponent(name)}`;
     }
 
-    function closeProfile() {
-      profileView.style.display = "none";
+    function loadProfileFromQuery() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const memberName = urlParams.get('member');
+      if (memberName && profiles[memberName]) {
+        const p = profiles[memberName];
+        const profileHTML = `
+          <div class="profile-detail">
+            <h2>${p.name}</h2>
+            <img src="${p.image}" alt="${p.name}" />
+            <p>${p.description}</p>
+          </div>
+        `;
+        document.getElementById('members').style.display = 'none';
+        document.getElementById('profile').innerHTML = profileHTML;
+      }
     }
+
+    window.onload = loadProfileFromQuery;
   </script>
-
 </body>
 </html>
-
