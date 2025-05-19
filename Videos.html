@@ -9,15 +9,46 @@
       font-family: Arial, sans-serif;
       margin: 0;
       background-color: #fefefe;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
     }
 
     header {
-      background-color: #fff;
-      padding: 20px;
-      text-align: center;
-      font-size: 28px;
+      background-color: #ffffff;
+      padding: 10px 20px;
+      border-bottom: 2px solid #ddd;
+      display: flex;
+      align-items: center;
+    }
+
+    header img {
+      height: 40px;
+      margin-right: 10px;
+    }
+
+    header h1 {
+      font-size: 24px;
+      margin: 0;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      background-color: #d2f0ff;
+      padding: 10px 0;
+      gap: 40px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: black;
       font-weight: bold;
-      border-bottom: 2px solid #ccc;
+      font-size: 18px;
+    }
+
+    nav a.active {
+      border-bottom: 3px solid black;
     }
 
     .container {
@@ -37,7 +68,7 @@
     .video-thumb img {
       width: 100%;
       border-radius: 10px;
-      border: 2px solid #ddd;
+      border: 2px solid #ccc;
     }
 
     .video-thumb span {
@@ -75,33 +106,65 @@
     .back-button:hover {
       background-color: #222;
     }
+
+    .spacer {
+      flex-grow: 1;
+    }
+
+    footer {
+      background-color: #222;
+      color: #eee;
+      padding: 20px;
+      text-align: center;
+      font-size: 14px;
+    }
   </style>
 </head>
 <body>
-  <header>SEVENTEEN VIDEO GALLERY</header>
+  <header>
+    <img src="Photos/logo.png" alt="SEVENTEEN Logo" />
+    <h1>SEVENTEEN</h1>
+  </header>
 
-  <div class="container" id="videoGallery">
-    <div class="video-thumb" onclick="playVideo('videos/video1.mp4', 'Behind The Scenes')">
-      <img src="thumbnails/video1.jpg" alt="Video 1">
-      <span>Behind The Scenes</span>
-    </div>
-    <div class="video-thumb" onclick="playVideo('videos/video2.mp4', 'Comeback Stage')">
-      <img src="thumbnails/video2.jpg" alt="Video 2">
-      <span>Comeback Stage</span>
-    </div>
-    <div class="video-thumb" onclick="playVideo('videos/video3.mp4', 'Dance Practice')">
-      <img src="thumbnails/video3.jpg" alt="Video 3">
-      <span>Dance Practice</span>
-    </div>
-    <!-- Add more video entries as needed -->
-  </div>
+  <nav>
+    <a href="index.html">FAN</a>
+    <a href="Artist.html">ARTIST</a>
+    <a href="Media.html">MEDIA</a>
+    <a href="Videos.html" class="active">VIDEOS</a>
+    <a href="Achievement.html">ACHIEVEMENTS</a>
+  </nav>
 
-  <div class="video-player" id="playerSection">
-    <h2 id="videoTitle">Playing...</h2>
-    <video id="videoPlayer" controls autoplay></video>
-    <br>
-    <button class="back-button" onclick="goBack()">← Back to Gallery</button>
-  </div>
+  <main>
+    <!-- Video Gallery -->
+    <div class="container" id="videoGallery">
+      <div class="video-thumb" onclick="playVideo('videos/video1.mp4', 'Behind The Scenes')">
+        <img src="thumbnails/video1.jpg" alt="Behind The Scenes" />
+        <span>Behind The Scenes</span>
+      </div>
+      <div class="video-thumb" onclick="playVideo('videos/video2.mp4', 'Comeback Stage')">
+        <img src="thumbnails/video2.jpg" alt="Comeback Stage" />
+        <span>Comeback Stage</span>
+      </div>
+      <div class="video-thumb" onclick="playVideo('videos/video3.mp4', 'Dance Practice')">
+        <img src="thumbnails/video3.jpg" alt="Dance Practice" />
+        <span>Dance Practice</span>
+      </div>
+    </div>
+
+    <!-- Video Player Section -->
+    <div class="video-player" id="playerSection">
+      <h2 id="videoTitle">Playing...</h2>
+      <video id="videoPlayer" controls autoplay></video>
+      <br />
+      <button class="back-button" onclick="goBack()">← Back to Gallery</button>
+    </div>
+  </main>
+
+  <div class="spacer"></div>
+
+  <footer>
+    (C) 2025 SEVENTEEN CARAT. ALL RIGHTS RESERVED.
+  </footer>
 
   <script>
     function playVideo(src, title) {
@@ -123,4 +186,5 @@
   </script>
 </body>
 </html>
+
 
