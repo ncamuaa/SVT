@@ -51,16 +51,26 @@
       border-bottom: 3px solid black;
     }
 
-    .container {
+    .section {
+      padding: 20px;
+    }
+
+    .section h2 {
+      text-align: center;
+      border-bottom: 2px solid #ccc;
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+    }
+
+    .video-grid {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       gap: 20px;
-      padding: 20px;
     }
 
     .video-thumb {
-      width: 280px;
+      width: 260px;
       cursor: pointer;
       text-align: center;
     }
@@ -135,19 +145,50 @@
   </nav>
 
   <main>
-    <!-- Video Gallery -->
-    <div class="container" id="videoGallery">
-      <div class="video-thumb" onclick="playVideo('videos/video1.mp4', 'Behind The Scenes')">
-        <img src="thumbnails/video1.jpg" alt="Behind The Scenes" />
-        <span>Behind The Scenes</span>
+    <div id="videoGallery">
+      <!-- Music Videos Section -->
+      <div class="section">
+        <h2>Music Videos</h2>
+        <div class="video-grid">
+          <div class="video-thumb" onclick="playVideo('videos/music1.mp4', 'HOT MV')">
+            <img src="thumbnails/music1.jpg" alt="HOT MV" />
+            <span>HOT MV</span>
+          </div>
+          <div class="video-thumb" onclick="playVideo('videos/music2.mp4', 'Super MV')">
+            <img src="thumbnails/music2.jpg" alt="Super MV" />
+            <span>Super MV</span>
+          </div>
+        </div>
       </div>
-      <div class="video-thumb" onclick="playVideo('videos/video2.mp4', 'Comeback Stage')">
-        <img src="thumbnails/video2.jpg" alt="Comeback Stage" />
-        <span>Comeback Stage</span>
+
+      <!-- Dance Practice Section -->
+      <div class="section">
+        <h2>Dance Practice</h2>
+        <div class="video-grid">
+          <div class="video-thumb" onclick="playVideo('videos/dance1.mp4', 'Rock With You Practice')">
+            <img src="thumbnails/dance1.jpg" alt="Rock With You" />
+            <span>Rock With You</span>
+          </div>
+          <div class="video-thumb" onclick="playVideo('videos/dance2.mp4', 'Ready to Love Practice')">
+            <img src="thumbnails/dance2.jpg" alt="Ready to Love" />
+            <span>Ready to Love</span>
+          </div>
+        </div>
       </div>
-      <div class="video-thumb" onclick="playVideo('videos/video3.mp4', 'Dance Practice')">
-        <img src="thumbnails/video3.jpg" alt="Dance Practice" />
-        <span>Dance Practice</span>
+
+      <!-- Behind the Scene Section -->
+      <div class="section">
+        <h2>Behind the Scene</h2>
+        <div class="video-grid">
+          <div class="video-thumb" onclick="playVideo('videos/behind1.mp4', 'MV Shooting BTS')">
+            <img src="thumbnails/behind1.jpg" alt="MV BTS" />
+            <span>MV Shooting</span>
+          </div>
+          <div class="video-thumb" onclick="playVideo('videos/behind2.mp4', 'Tour Rehearsals')">
+            <img src="thumbnails/behind2.jpg" alt="Tour Rehearsals" />
+            <span>Tour Rehearsals</span>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -177,7 +218,7 @@
     }
 
     function goBack() {
-      document.getElementById("videoGallery").style.display = "flex";
+      document.getElementById("videoGallery").style.display = "block";
       document.getElementById("playerSection").style.display = "none";
       const player = document.getElementById("videoPlayer");
       player.pause();
@@ -186,5 +227,3 @@
   </script>
 </body>
 </html>
-
-
