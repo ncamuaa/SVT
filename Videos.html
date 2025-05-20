@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>SEVENTEEN Videos</title>
   <style>
+    /* (Unchanged styles remain here) */
     body {
       font-family: Arial, sans-serif;
       margin: 0;
@@ -151,71 +152,62 @@
       <div class="section">
         <h2>Music Videos</h2>
         <div class="video-grid">
-          <div class="video-thumb" onclick="playVideo('Videos/adoreu.mp4', 'Music Video 1')">
-            <img src="Photos/adoreu.jpg" alt="Music 1" />
+          <div class="video-thumb" onclick="playVideo('Videos/adoreu.mp4', 'Adore U')">
+            <img src="Photos/adoreu.jpg" alt="Adore U" />
             <span>Music Video 1</span>
           </div>
-          <div class="video-thumb" onclick="playVideo('Videos/prettyu.mp4', 'Music Video 2')">
-            <img src="Photos/prettyu.jpg" alt="Music 2" />
+          <div class="video-thumb" onclick="playVideo('Videos/Prettyu.mp4', 'Pretty U')">
+            <img src="Photos/prettyu.jpg" alt="Pretty U" />
             <span>Music Video 2</span>
           </div>
-          <div class="video-thumb" onclick="playVideo('Videos/rockwithyou.mp4', 'Music Video 3')">
-            <img src="Photos/rockwithyou.jpg" alt="Music 3" />
+          <div class="video-thumb" onclick="playVideo('videos/rockwithyou.mp4', 'Rock with You')">
+            <img src="Photos/rockwithyou.jpg" alt="Rock with You" />
             <span>Music Video 3</span>
           </div>
-          <div class="video-thumb" onclick="playVideo('Videos/hot.mp4', 'Music Video 4')">
-            <img src="Photos/hot.jpg" alt="Music 4" />
+          <div class="video-thumb" onclick="playVideo('videos/hot.mp4', 'HOT')">
+            <img src="Photos/hot.jpg" alt="HOT" />
             <span>Music Video 4</span>
           </div>
-          <div class="video-thumb" onclick="playVideo('Videos/super.mp4', 'Music Video 5')">
-            <img src="Photos/super.jpg" alt="Music 5" />
+          <div class="video-thumb" onclick="playVideo('videos/super.mp4', 'Super')">
+            <img src="Photos/super.jpg" alt="Super" />
             <span>Music Video 5</span>
           </div>
-          <div class="video-thumb" onclick="playVideo('Videos/godofmusic.mp4', 'Music Video 6')">
-            <img src="Photos/godofmusic.png" alt="Music 6" />
+          <div class="video-thumb" onclick="playVideo('videos/godofmusic.mp4', 'God of Music')">
+            <img src="Photos/godofmusic.png" alt="God of Music" />
             <span>Music Video 6</span>
           </div>
         </div>
       </div>
 
-      <!-- Dance Practice -->
-      <div class="section">
-        <h2>Dance Practices</h2>
-        <div class="video-grid">
-          <div class="video-thumb" onclick="playVideo('Videos/dance1.mp4', 'Dance Practice 1')">
-            <img src="thumbnails/dance1.jpg" alt="Dance 1" />
-            <span>Dance Practice 1</span>
-          </div>
-          <div class="video-thumb" onclick="playVideo('Videos/dance2.mp4', 'Dance Practice 2')">
-            <img src="thumbnails/dance2.jpg" alt="Dance 2" />
-            <span>Dance Practice 2</span>
-          </div>
-          <div class="video-thumb" onclick="playVideo('Videos/dance3.mp4', 'Dance Practice 3')">
-            <img src="thumbnails/dance3.jpg" alt="Dance 3" />
-            <span>Dance Practice 3</span>
-          </div>
-          <div class="video-thumb" onclick="playVideo('Videos/dance4.mp4', 'Dance Practice 4')">
-            <img src="thumbnails/dance4.jpg" alt="Dance 4" />
-            <span>Dance Practice 4</span>
-          </div>
-          <div class="video-thumb" onclick="playVideo('Videos/dance5.mp4', 'Dance Practice 5')">
-            <img src="thumbnails/dance5.jpg" alt="Dance 5" />
-            <span>Dance Practice 5</span>
-          </div>
-          <div class="video-thumb" onclick="playVideo('Videos/dance6.mp4', 'Dance Practice 6')">
-            <img src="thumbnails/dance6.jpg" alt="Dance 6" />
-            <span>Dance Practice 6</span>
-          </div>
-        </div>
-      </div>
+     <!-- Dance Practice -->
+<div class="section">
+  <h2>Dance Practices</h2>
+  <div class="video-grid">
+    <div class="video-thumb" onclick="playVideo('Videos/ajunice.mp4', 'Aju Nice')">
+      <img src="thumbnails/dance1.jpg" alt="Aju Nice" />
+      <span>Dance Practice 1</span>
+    </div>
+    <div class="video-thumb" onclick="playVideo('Videos/dontwannacry.mp4', 'Dont Wanna Cry')">
+      <img src="thumbnails/dance2.jpg" alt="Don't Wanna Cry" />
+      <span>Dance Practice 2</span>
+    </div>
+    <div class="video-thumb" onclick="playVideo('Videos/world.mp4', 'World')">
+      <img src="thumbnails/dance3.jpg" alt="World" />
+      <span>Dance Practice 3</span>
+    </div>
+    <div class="video-thumb" onclick="playVideo('Videos/snapshoot.mp4', 'Snap Shoot')">
+      <img src="thumbnails/dance4.jpg" alt="Snap" />
+      <span>Dance Practice 4</span>
+    </div>
+  </div>
+</div>
 
-      <!-- Video Player Section -->
-      <div class="video-player" id="playerSection">
-        <h2 id="videoTitle">Playing...</h2>
-        <video id="videoPlayer" controls autoplay></video>
-        <br />
-        <button class="back-button" onclick="goBack()">← Back to Gallery</button>
-      </div>
+    <!-- Video Player Section -->
+    <div class="video-player" id="playerSection">
+      <h2 id="videoTitle">Playing...</h2>
+      <video id="videoPlayer" controls autoplay></video>
+      <br />
+      <button class="back-button" onclick="goBack()">← Back to Gallery</button>
     </div>
   </main>
 
