@@ -8,7 +8,7 @@
   <style>
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
+      font-family: Manrope, sans-serif;
       background-color: #f8f8f8;
     }
 
@@ -378,8 +378,12 @@
         post.className = "post";
 
         post.innerHTML = `
-          <strong>${name}</strong><br>
-          <span>${content}</span><hr>
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <img src="Photos/logo.png" alt="" style="height: 20px;">
+            <strong>${name}</strong>
+          </div>
+          <div>${content}</div>
+          <hr>
         `;
 
         posts.prepend(post);
